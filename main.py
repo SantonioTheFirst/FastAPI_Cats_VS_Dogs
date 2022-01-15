@@ -18,3 +18,8 @@ async def index(request: Request):
     prediction = model.predict(np.expand_dims(image_np, axis=0))
     prediction_list = prediction[0].tolist()
     return {'prediction': prediction_list}
+
+
+@app.get('/')
+def ping(request: Request):
+    return {'Hello': 'world!'}
